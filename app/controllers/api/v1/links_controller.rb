@@ -5,7 +5,6 @@ class Api::V1::LinksController < ApplicationController
     if @link.save
       render json: @link, status: 201
     else
-      puts "+++++++++++++++++++++++++#{@link.errors.full_messages}========================"
       render json: @link.errors.full_messages, status: 500
     end
   end
