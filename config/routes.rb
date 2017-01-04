@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :links, only: [:index]
   resources :users, only: [:new, :create]
+  resources :sessions, only: [:create, :destroy]
 
   namespace :api do
     namespace :v1 do
