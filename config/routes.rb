@@ -3,8 +3,13 @@ Rails.application.routes.draw do
   root to: "links#index"
 
   resources :links, only: [:index]
-  resources :users, only: [:new, :create]
-  resources :sessions, only: [:create, :destroy]
+
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+  get '/signup' => 'users#new'
+  post '/users' => 'users#create'
 
   namespace :api do
     namespace :v1 do
