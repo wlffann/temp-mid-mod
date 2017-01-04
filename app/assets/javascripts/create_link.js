@@ -2,10 +2,10 @@ var $newLinkTitle, $newLinkUrl;
 
 $(document).ready(function(){
 
-  $newLinkTitle = $("#link_title");
-  $newLinkUrl  = $("#link_url");
+  $newLinkTitle = $("#link-title");
+  $newLinkUrl  = $("#link-url");
 
-  $("#submit_link").on('click', createLink);
+  $("#new-link").on('submit', createLink);
 })
 
 function createLink (event){
@@ -28,22 +28,22 @@ function getLinkData() {
 }
 
 function renderLink(link){
-  $("#links_list").append( linkHTML(link) )
+  $("#links-list").append( linkHTML(link) )
   // clearLink();
 }
 
 function linkHTML(link) {
 
     return `<div class='link' data-id='${link.id}' id="link-${link.id}">
-              <p class='link-title' contenteditable=true>${ link.title }</p>
-              <p class='link-url' contenteditable=true>${ link.url }</p>
+              <p class='link-title'>${ link.title }</p>
+              <p class='link-url'>${ link.url }</p>
 
               <p class="link_read">
                 ${ link.read }
               </p>
               <p class="link_buttons">
-                <button class="upgrade-quality">+</button>
-                <button class="downgrade-quality">-</button>
+                <button class="mark-read">Mark as Read</button>
+                <button class='edit-link'>Edit</button>
                 <button class='delete-link'>Delete</button>
               </p>
             </div>`
