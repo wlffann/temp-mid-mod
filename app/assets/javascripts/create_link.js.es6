@@ -1,7 +1,6 @@
 var $newLinkTitle, $newLinkUrl;
 
 $(document).ready(function(){
-
   $newLinkTitle = $("#link-title");
   $newLinkUrl  = $("#link-url");
 
