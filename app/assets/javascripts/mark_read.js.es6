@@ -1,4 +1,4 @@
-$(function(){
+$( document ).ready(function(){
   $("body").on("click", ".mark-as-read", markAsRead)
 })
 
@@ -13,11 +13,11 @@ function markAsRead(e) {
     url: "/api/v1/links/" + linkId,
     data: { read: true },
   }).then(updateLinkStatus)
-    .catch(displayFailure)
+    .fail(displayFailure);
 }
 
 function updateLinkStatus(link) {
-  $(".link[data-link-id=" + link.id + "]").find(".read-status").text(link.read);
+  $(`.link[data-link-id=${link.id}]`).find(".read-status").text(link.read);
 }
 
 function displayFailure(failureData){
