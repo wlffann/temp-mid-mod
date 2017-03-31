@@ -36,5 +36,5 @@ group :development, :test do
   gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'poltergeist'
+  gem 'selenium-webdriver'
 end
