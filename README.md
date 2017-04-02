@@ -14,6 +14,8 @@ The app has selenium-webdriver in the gem file and setup in the rails_helper.rb
 
 Everything will be installed with Bundle.
 
+You will need to download the 47.1 version of Firefox [here](https://ftp.mozilla.org/pub/firefox/releases/47.0.1/firefox-47.0.1.mac-x86_64.sdk.tar.bz2), as well.
+
 #### Use
 
 You can then write capybara feature tests and add `js: true` tag to each test the has JavaScript.  Your tests will execute and recognize your JavaScript.
