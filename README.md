@@ -6,20 +6,22 @@ The URLockbox is a starter app for the mid-module assessment for backend enginee
 
 Be sure to get familiar with what is already done, and what is not. No features are complete, but there is some set up done for several features. Use commit history if that helps.
 
-### Testing with using selenium-webdriver
+### Testing your JS with Selenium
 
-The app has selenium-webdriver in the gem file and setup in the rails_helper.rb
+The app has the `selenium-webdriver` gem listed in the `Gemfile` and setup in the `rails_helper.rb`
 
 #### Setup
 
 Everything will be installed with Bundle.
 
-You will need to download the 47.1 version of Firefox [here](https://ftp.mozilla.org/pub/firefox/releases/47.0.1/firefox-47.0.1.mac-x86_64.sdk.tar.bz2), as well.
+You will need to download version 46 of Firefox [here](https://www.softexia.com/windows/web-browsers/firefox-46). If you do have it, make sure it is on version 46. Selenium does not work with all versions of Firefox, so make sure that you are using Firefox 46 or else it will potentially cause you problems. 
+
+If you already have Firefox and it's on a version more recent than 46, the easiest way to downgrade is to uninstall Firefox then install version 46.
 
 #### Use
 
-You can then write capybara feature tests and add `js: true` tag to each test the has JavaScript.  Your tests will execute and recognize your JavaScript.
+You can then write capybara feature tests and add `js: true` tag if you'd like your test to use the Selenium WebDriver rather than the default WebDriver.  Your tests will execute and recognize your JavaScript.
 
 If you're having problems troubleshooting asynchronous actions (like DOM changes after an AJAX request), [peruse this section of Capybara's docs](https://github.com/teamcapybara/capybara#asynchronous-javascript-ajax-and-friends)
 
-It is highly suggested that you also check out the capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
+It is highly suggested that you also check out the Capybara docs and and the section on [selenium-webdriver](https://github.com/teamcapybara/capybara#selenium).
