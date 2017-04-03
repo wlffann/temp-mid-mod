@@ -36,5 +36,5 @@ group :development, :test do
   gem 'better_errors'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '~> 2.53.4'
 end
