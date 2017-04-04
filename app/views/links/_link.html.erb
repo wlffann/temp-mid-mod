@@ -1,0 +1,8 @@
+<div class="link read-<%=link.read%>">
+  <h3><%= link.title %></h3>
+  <%= link_to link.url, link.url %>
+  <p>Read?: <%= link.read %></p>
+
+  <button class='mark_as_read'>Mark as Read</button>
+  <button class='edit'>Edit</button>
+</div>

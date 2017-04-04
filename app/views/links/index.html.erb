@@ -1,1 +1,29 @@
 <h1>Your Links</h1>
+
+<form>
+  <label>Title:</label>
+  <input type='text' name='link_title'></input>
+
+  <label>URL:</label>
+  <input type='text' name='link_url'></input>
+
+  <input type='hidden' name='user_id' value=<%= current_user.id %>></input>
+
+  <input type='submit' value='Add Link'></input>
+</form>
+
+<h2>Filters</h2>
+
+<label>By text:</label>
+<input type='text' name='text_filter'></input>
+
+<button id='only_unread'>Only Unread Links</button>
+<button id='only_read'>Only Read Links</button>
+  
+<hr>
+
+<div class='links'>
+  <% current_user.links.each do |link| %>
+    <%= render partial: 'link', locals: {link: link } %>
+  <% end %>
+</div>

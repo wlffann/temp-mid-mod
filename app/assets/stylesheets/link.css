@@ -1,0 +1,22 @@
+.links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.link {
+  margin: 5px;
+  padding: 10px;
+  max-width: 30%;
+  border: 2px solid grey;
+  border-radius: 3px;
+}
+
+.read-false:hover {
+  border-color: #f78909;
+}
+
+.read-true {
+  background-color: #A0A4AD;
+}
