@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       flash[:success] = "Welcome back!"
       redirect_to links_path
     else
-      flash[:danger] = "Email and Password do not match"
+      flash[:danger] = "Email and Password don't match"
       redirect_to '/login'
     end
   end
