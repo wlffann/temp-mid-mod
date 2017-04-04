@@ -50,4 +50,34 @@ RSpec.describe "User Authentication", :js => :true do
     expect(page).to_not have_content("Password confirmation cannot be blank")
   end
 
+  scenario "Registered User logs in" do
+    user = create(:user)
+    visit login_path
+    fill_in 'email', :with => user.email
+    fill_in 'password', :with => user.password
+    click_on 'Log In'
+
+    expect(current_path).to eq(links_path)
+    expect(page).to have_content("Welcome back!")
+  end
+
+  scenario "Registered User must supply valid email and password" do
+    user = create(:user)
+    visit login_path
+    fill_in 'email', :with => user.email
+    fill_in 'password', :with => 'boomboom'
+    click_on 'Log In'
+
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content("Email and Password don't match") 
+  end
+
+  scenario "Registered User logs out" do
+    user = create(:user)
+    stub_login(user)
+    visit links_path
+    click_on "Log Out"
+
+    expect(current_path).to eq(login_path)
+  end
 end

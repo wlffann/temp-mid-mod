@@ -5,6 +5,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
 require 'capybara/rails'
 require 'capybara/rspec'
+require 'rack_session_access/capybara'
 
 Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(
@@ -40,6 +41,8 @@ RSpec.configure do |config|
 
   #### Database cleaner strategy
   #### Copied from https://github.com/DatabaseCleaner/database_cleaner#rspec-with-capybara-example
+  
+  config.include TestHelpers
 
   config.use_transactional_fixtures = false
 
