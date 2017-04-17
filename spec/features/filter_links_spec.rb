@@ -35,3 +35,17 @@ describe 'Filter links', :js => true do
     expect(page).to have_content @link4.url
   end
 
+  it 'by title with matches' do
+    fill_in 'text_filter', :with => "Specific"
+
+    expect(page).to have_selector('.link', count: 1)
+    expect(page).to have_content @link4.title
+    expect(page).to have_content @link4.url
+  end
+  
+  it 'by title with no matches' do
+    fill_in 'text_filter', :with => "ZZ"
+
+    expect(page).to_not have_selector('.link')
+  end
+end
