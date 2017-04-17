@@ -8,11 +8,12 @@ function markAsUnread(e){
   
   var $link = $(this).parents('.link');
   var linkId = $link.data('id');
+  var linkUrl = $link.find('.url a').text()
 
   $.ajax({
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
-    data: {link: { read: false } },
+    data: {link: { read: false, url: linkUrl } },
   }).then(updateLinkStatus)
     .fail(displayFailure);
 }

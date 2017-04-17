@@ -1,6 +1,6 @@
 <div class="link read-<%=link.read%>" data-id=<%=link.id%>>
   <h3>Title: <%= link.title %></h3>
-  <p>URL: <%= link_to link.url, link.url %></p>
+  <p class='url'>URL: <%= link_to link.url, link.url %></p>
   <p>Read?: <span class='read-status'><%= link.read %></span></p>
   <% if link.read %>
     <button class='mark-as-unread'>Mark as Unread</button>
