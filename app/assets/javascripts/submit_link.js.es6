@@ -1,5 +1,5 @@
 $(document).ready(() => {
-  $('input[type=submit]').on('click', createLink)
+  $('#submit-link').on('click', createLink)
 })
 
 const createLink = (event) => {
