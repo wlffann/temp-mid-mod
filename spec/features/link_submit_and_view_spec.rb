@@ -26,4 +26,12 @@ RSpec.describe 'Submitting new links', :js => :true do
     expect(current_path).to eq(links_path)
     expect(page).to have_content("Url must be valid")
   end
+
+  it 'requires a title' do
+    fill_in 'link_url', :with => "http://www.turing.io/"
+    click_link_or_button 'Add Link'
+
+    expect(current_path).to eq(links_path)
+    expect(page).to have_content("Title can't be blank")
+  end
 end
