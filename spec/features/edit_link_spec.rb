@@ -21,9 +21,9 @@ describe 'Editing Links' do
   end
 
   it 'can only be done with valid urls' do
-    fill_in 'link_url', :with => 'not a url'
+    fill_in 'link_url', :with => 'github.com'
     click_on 'Update Link'
 
-    expect(page).to have_content('Those updates are invalid')
+    expect(page).to have_content('Url must be valid')
   end
 end

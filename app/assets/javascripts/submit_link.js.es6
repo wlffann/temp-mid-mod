@@ -8,12 +8,22 @@ const createLink = (event) => {
   sendLink(link)
   .done((linkMarkdown) => {
     addLink(linkMarkdown)
+    clearErrors()
   })
   .fail((response) => {
-    let error = JSON.parse(response.responseText)
-    $('body').prepend(`<p>${error.error}</p>`)
+    clearErrors()
+    addErrors(response)
   })
 } 
+
+const clearErrors = () => {
+ $('#errors').empty() 
+}
+
+const addErrors = (response) => {
+  let error = JSON.parse(response.responseText).errors[0]
+  $('body').prepend(`<p id='errors'>${error}</p>`)
+}
 
 const formatLink = () => {
   return {

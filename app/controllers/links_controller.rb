@@ -1,4 +1,3 @@
-require 'uri'
 class LinksController < ApplicationController
   
   def index
@@ -10,12 +9,10 @@ class LinksController < ApplicationController
 
   def update
     @link = current_user.links.find(params[:id])
-    url = URI.parse(link_params[:url])
-    if url.is_a?(URI::HTTP) && @link.update(link_params)
+    if @link.update(link_params)
       flash[:success] = "Link updated!"
       redirect_to root_path
     else
-      flash[:danger] = "Those updates are invalid"
       render :edit
     end
   end
