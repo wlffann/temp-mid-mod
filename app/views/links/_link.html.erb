@@ -7,5 +7,5 @@
   <% else %>
     <button class='mark-as-read'>Mark as Read</button>
   <% end %>
-  <button class='edit'>Edit</button>
+  <%= button_to "Edit", edit_link_path(link.id), method: :get %>
 </div>

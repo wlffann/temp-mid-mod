@@ -1,0 +1,15 @@
+<h2>Update This Link</h2>
+
+<% @link.errors.each do |attr, msg| %>
+  <%= @link.errors.full_messages_for(attr).first if @link.errors[attr].first == msg %>
+<% end %>
+
+<%= form_for @link do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :url %>
+  <%= f.text_field :url %>
+
+  <%= f.submit %>
+<% end %>
