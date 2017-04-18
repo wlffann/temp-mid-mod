@@ -1,5 +1,5 @@
 <div class="link read-<%=link.read%>" data-id=<%=link.id%>>
-  <% if top_reads %>
+  <% if top_reads != [] %>
     <% if top_reads[0]["url"] == link.url %>
       <h4>Top Link!</h4>
     <% elsif top_reads.include?(link.url) %>
