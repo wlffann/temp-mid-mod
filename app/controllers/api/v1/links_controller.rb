@@ -20,7 +20,9 @@ class Api::V1::LinksController < ApplicationController
     user = User.find(params[:link][:user_id])
     link = user.links.new(link_params)
     if link.save
-      render partial: '/links/link', locals: {link: link}, layout: false
+      response = HotReadsService.new.top_reads
+      top_reads = JSON.parse(response.body).map {|k,v| v}
+      render partial: '/links/link', locals: {link: link, top_reads: top_reads}, layout: false
     else
       render status: 400, json: {"errors": link.errors.full_messages}
     end

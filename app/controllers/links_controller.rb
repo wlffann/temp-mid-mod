@@ -1,6 +1,8 @@
 class LinksController < ApplicationController
   
   def index
+    response = HotReadsService.new.top_reads
+    @top_reads = JSON.parse(response.body).map {|link| link['url']}
   end
 
   def edit

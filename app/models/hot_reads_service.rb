@@ -1,6 +1,6 @@
 require 'faraday'
 class HotReadsService
-  def initialize(url)
+  def initialize(url = '')
     @conn = Faraday.new(:url => 'https://agile-ocean-54614.herokuapp.com')
     @url = url
   end
@@ -10,6 +10,12 @@ class HotReadsService
       req.url '/'
       req.headers['Content-Type'] = 'application/json'
       req.body = {"url": @url}.to_json
+    end
+  end
+  
+  def top_reads
+    @conn.get do |req|
+      req.url '/api/v1/top_reads'
     end
   end
 end

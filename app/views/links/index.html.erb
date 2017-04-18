@@ -24,6 +24,6 @@
 
 <div class='links'>
   <% current_user.links.each do |link| %>
-    <%= render partial: 'link', locals: {link: link } %>
+    <%= render partial: 'link', locals: {link: link, top_reads: @top_reads} %>
   <% end %>
 </div>
