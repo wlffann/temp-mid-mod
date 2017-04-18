@@ -13,7 +13,7 @@ function markAsUnread(e){
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: {link: { read: false } },
-  }).then(updateLinkStatus)
+  }).then((link) => updateLinkStatus(link, false))
     .fail(displayFailure);
 }
 
@@ -28,21 +28,24 @@ function markAsRead(e) {
     type: "PATCH",
     url: "/api/v1/links/" + linkId,
     data: {link: { read: true, url: linkUrl } },
-  }).then(updateLinkStatus)
+  }).then((link) => updateLinkStatus(link, true))
     .fail(displayFailure);
 }
 
-function updateLinkStatus(link) {
+function updateLinkStatus(link, status) {
   var $link =  $(`.link[data-id=${link.id}]`)
-  $link.find(".read-status").text(link.read)
+  $link.find(".read-status").text(`${status}`)
   $link.toggleClass('read-false').toggleClass('read-true');
-  changeButton($link, link.read)
+  changeButton($link, status)
 }
 
 function changeButton($link, status) {
   if(status === true) {
-    $link.find(".mark-as-read").text("Mark as Unread").removeClass('.mark-as-read').addClass('.mark-as-unread');  } else {
-    $link.find('.mark-as-unread').text("Mark as Read").removeClass('.mark-as-unread').addClass('.mark-as-read');  }
+    $link.find(".mark-as-read").text("Mark as Unread").removeClass('.mark-as-read').addClass('.mark-as-unread');  
+  } else {
+    debugger
+    $link.find('.mark-as-unread').text("Mark as Read").removeClass('.mark-as-unread').addClass('.mark-as-read');  
+  }
 }
 
 function displayFailure(failureData){
