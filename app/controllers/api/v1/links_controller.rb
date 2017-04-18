@@ -6,7 +6,7 @@ class Api::V1::LinksController < ApplicationController
     @link = Link.find(params[:id])
     if @link.update_attributes(link_params)
       if link_params[:read] = 'true'
-        HotReadsService.new(link_params[:url]).send_read
+        HotReadsService.new.send_read(link_params[:url])
         render json: @link
       else
         render json: @link
